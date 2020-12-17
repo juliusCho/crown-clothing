@@ -1,4 +1,5 @@
 import React from 'react'
+import { RouteComponentProps, withRouter } from 'react-router-dom'
 import { SizeEnum } from '../../types/section.types'
 import './menu-item.styles.scss'
 
@@ -6,10 +7,20 @@ type Props = {
   title: string
   imageUrl: string
   size?: SizeEnum
+  linkUrl: string
 }
 
-const MenuItem = ({ title, imageUrl, size }: Props) => (
-  <div className={`${size} menu-item`}>
+const MenuItem = ({
+  title,
+  imageUrl,
+  size,
+  linkUrl,
+  history,
+  match,
+}: Props & RouteComponentProps) => (
+  <div
+    className={`${size} menu-item`}
+    onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <div
       className="background-image"
       style={{ backgroundImage: `url(${imageUrl})` }}
@@ -21,4 +32,4 @@ const MenuItem = ({ title, imageUrl, size }: Props) => (
   </div>
 )
 
-export default MenuItem
+export default withRouter(MenuItem)
