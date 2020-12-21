@@ -3,11 +3,12 @@ export enum SizeEnum {
 }
 
 export enum LinkUrlEnum {
-  HATS = 'shop/hats',
-  JACKETS = 'shop/jackets',
-  SNEAKERS = 'shop/sneakers',
-  WOMENS = 'shop/womens',
-  MENS = 'shop/mens',
+  HATS = 'hats',
+  JACKETS = 'jackets',
+  SNEAKERS = 'sneakers',
+  WOMENS = 'womens',
+  MENS = 'mens',
+  SHOP = 'shop',
 }
 
 export type SectionType = {
