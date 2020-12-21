@@ -9,6 +9,7 @@ export enum LinkUrlEnum {
   WOMENS = 'womens',
   MENS = 'mens',
   SHOP = 'shop',
+  AUTHENTICATE = 'signin',
 }
 
 export type SectionType = {
