@@ -3,12 +3,22 @@ import './custom-button.styles.scss'
 
 type Props = {
   children: string
+  onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
+  isGoogleSignIn?: boolean
 }
 
-export default function CustomButton({ children, type }: Props) {
+export default function CustomButton({
+  children,
+  onClick,
+  type,
+  isGoogleSignIn,
+}: Props) {
   return (
-    <button className="custom-button" type={type}>
+    <button
+      className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}
+      type={type}
+      onClick={onClick}>
       {children}
     </button>
   )

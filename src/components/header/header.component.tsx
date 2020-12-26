@@ -1,10 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/crown.svg'
+import firebase, { auth } from '../../firebase/firebase.utils'
 import { LinkUrlEnum } from '../../types/section.types'
 import './header.styles.scss'
 
-export default function Header() {
+type Props = {
+  currentUser: null | firebase.User
+}
+export default function Header({ currentUser }: Props) {
   return (
     <div className="header">
       <Link to="/" className="logo-container">
@@ -17,6 +21,15 @@ export default function Header() {
         <Link className="option" to={'/' + LinkUrlEnum.SHOP}>
           CONTACT
         </Link>
+        {currentUser ? (
+          <div className="option" onClick={() => auth.signOut()}>
+            SIGN OUT
+          </div>
+        ) : (
+          <Link className="option" to="/signin">
+            SIGN IN
+          </Link>
+        )}
       </div>
     </div>
   )
