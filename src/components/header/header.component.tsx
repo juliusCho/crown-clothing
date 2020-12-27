@@ -6,7 +6,7 @@ import { LinkUrlEnum } from '../../types/section.types'
 import './header.styles.scss'
 
 type Props = {
-  currentUser: null | firebase.User
+  currentUser: null | firebase.firestore.DocumentData
 }
 export default function Header({ currentUser }: Props) {
   return (
