@@ -10,26 +10,26 @@ type Props = {
   linkUrl: string
 }
 
-const MenuItem = ({
+export default withRouter(function MenuItem({
   title,
   imageUrl,
   size,
   linkUrl,
   history,
   match,
-}: Props & RouteComponentProps) => (
-  <div
-    className={`${size} menu-item`}
-    onClick={() => history.push(`${match.url}${linkUrl}`)}>
+}: Props & RouteComponentProps) {
+  return (
     <div
-      className="background-image"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    />
-    <div className="content">
-      <h1 className="title">{title.toUpperCase()}</h1>
-      <span className="subtitle">SHOP NOW</span>
+      className={`${size} menu-item`}
+      onClick={() => history.push(`${match.url}${linkUrl}`)}>
+      <div
+        className="background-image"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+      />
+      <div className="content">
+        <h1 className="title">{title.toUpperCase()}</h1>
+        <span className="subtitle">SHOP NOW</span>
+      </div>
     </div>
-  </div>
-)
-
-export default withRouter(MenuItem)
+  )
+})
